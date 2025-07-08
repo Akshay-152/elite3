@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Fashions - Premium Shopping Experience</title>
+    <meta name="description" content="Discover premium fashion and lifestyle products at Elite Fashions. Experience luxury shopping with curated collections, exclusive brands, and exceptional quality.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Elite Fashions - Premium Shopping Experience" />
+    <meta property="og:description" content="Discover premium fashion and lifestyle products with curated collections and exceptional quality." />
+    <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVcgbVjtZOurxM5i98pP5tehtZqa0bIUFL2UfyTjNFZ6olqU1gE6DkVfYamQdR9dZVuNgUTROdPExwbX9wQ2sYjkVXNGGAEA4QbG0dc63LjPuskPAiMcJZPsayM2RmjJB2hSIU86szKFPDpTSgvfIO7xGdn-fvmebaJJSN7NXMjCvMnKfDYv9r2SbWc1AX/s1600/1000098381.png" />
+    <meta property="og:url" content="https://elitefashions.com" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Elite Fashions - Premium Shopping Experience" />
+    <meta name="twitter:description" content="Discover premium fashion and lifestyle products with curated collections and exceptional quality." />
+    <meta name="twitter:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVcgbVjtZOurxM5i98pP5tehtZqa0bIUFL2UfyTjNFZ6olqU1gE6DkVfYamQdR9dZVuNgUTROdPExwbX9wQ2sYjkVXNGGAEA4QbG0dc63LjPuskPAiMcJZPsayM2RmjJB2hSIU86szKFPDpTSgvfIO7xGdn-fvmebaJJSN7NXMjCvMnKfDYv9r2SbWc1AX/s1600/1000098381.png" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVcgbVjtZOurxM5i98pP5tehtZqa0bIUFL2UfyTjNFZ6olqU1gE6DkVfYamQdR9dZVuNgUTROdPExwbX9wQ2sYjkVXNGGAEA4QbG0dc63LjPuskPAiMcJZPsayM2RmjJB2hSIU86szKFPDpTSgvfIO7xGdn-fvmebaJJSN7NXMjCvMnKfDYv9r2SbWc1AX/s1600/1000098381.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      
+      function shuffleArray(array) {
+
+  for (let i = array.length - 1; i > 0; i--) {
+
+    const j = Math.floor(Math.random() * (i + 1));
+
+    [array[i], array[j]] = [array[j], array[i]];
+
+  }
+
+}
+      
+      
+      
+      
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'elite': {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        },
+                        'gold': {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+   <!-- Custom Security Script -->
+  <script src="https://cdn.jsdelivr.net/gh/Akshay-152/akshay/disabled.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+    
+
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="kkk.css">
+
+
+
+</head>
+<body class="bg-elite-50 dark:bg-elite-900 font-sans transition-colors duration-300">
+    <!-- Header -->
+    <header id="header" class="bg-white dark:bg-elite-800 shadow-lg border-b border-elite-200 dark:border-elite-700 fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-14 lg:h-16">
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden text-elite-700 dark:text-elite-300 hover:bg-elite-100 dark:hover:bg-elite-700 p-2 rounded-lg transition-all duration-300 z-50 relative">
+                    <div class="w-6 h-6 flex flex-col justify-center items-center">
+                        <span class="hamburger-line block w-5 h-0.5 bg-current transform transition-transform duration-300 -translate-y-1"></span>
+                        <span class="hamburger-line block w-5 h-0.5 bg-current transition-opacity duration-300"></span>
+                        <span class="hamburger-line block w-5 h-0.5 bg-current transform transition-transform duration-300 translate-y-1"></span>
+                    </div>
+                </button>
+                
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 cursor-pointer group" onclick="goHome()">
+                    <div class="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-gold-400 to-gold-600 rounded-lg flex items-center justify-center transform group-hover:scale-105 transition-transform duration-300">
+                        <svg class="w-4 h-4 lg:w-5 lg:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-lg lg:text-xl font-serif font-bold text-elite-900 dark:text-white">Elite Fashions</h1>
+                        <p class="text-xs text-elite-500 dark:text-elite-400 hidden sm:block">Premium Collection</p>
+                    </div>
+                </div>
+
+                <!-- Search Bar - Desktop -->
+                <div class="hidden lg:flex flex-1 max-w-xl mx-6">
+                    <form class="relative w-full" onsubmit="handleSearch(event)">
+                        <div class="relative">
+                            <input
+                                id="searchInput"
+                                type="text"
+                                placeholder="Search products..."
+                                class="w-full pr-10 text-elite-900 dark:text-white bg-elite-100 dark:bg-elite-700 border border-elite-200 dark:border-elite-600 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all duration-300"
+                            />
+                            <button type="submit" class="absolute right-2 top-1/2 transform -translate-y-1/2 text-elite-500 dark:text-elite-400 hover:text-gold-500 transition-colors duration-300">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Navigation Links - Desktop -->
+                <div class="hidden lg:flex items-center space-x-2">
+                    <!-- Dark Mode Toggle -->
+                    <button id="darkModeToggle" class="text-elite-700 dark:text-elite-300 hover:bg-elite-100 dark:hover:bg-elite-700 p-1.5 rounded-lg transition-all duration-300">
+                        <svg class="w-4 h-4 hidden dark:block" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        <svg class="w-4 h-4 block dark:hidden" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                    </button>
+                    
+                    <button id="loginBtn" class="flex items-center space-x-1 text-elite-700 dark:text-elite-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-elite-100 dark:hover:bg-elite-700 px-3 py-1.5 rounded-lg transition-all duration-300 text-sm" onclick="handleAuthClick()">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        <span id="loginText" class="font-medium">Partner</span>
+                    </button>
+                    
+                    <button class="flex items-center space-x-1 text-elite-700 dark:text-elite-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-elite-100 dark:hover:bg-elite-700 px-3 py-1.5 rounded-lg transition-all duration-300 relative text-sm" onclick="openCartModal()">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13v6a1 1 0 001 1h8a1 1 0 001-1v-6M7 13H5.4"></path>
+                        </svg>
+                        <span class="font-medium">Cart</span>
+                        <span id="cartCount" class="absolute -top-1 -right-1 bg-gold-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center hidden text-xs">0</span>
+                    </button>
+                    
+                    <button id="uploadBtn" class="flex items-center space-x-1 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white px-4 py-1.5 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hidden text-sm" onclick="openUploadModal()">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                        </svg>
+                        <span>Upload</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobileMenu" class="lg:hidden absolute top-16 left-0 right-0 bg-white dark:bg-elite-800 border-t border-elite-200 dark:border-elite-700 shadow-lg transition-all duration-300 ease-in-out z-40 max-h-0 opacity-0 invisible overflow-hidden">
+            <div class="px-4 py-6 space-y-4">
+                <!-- Mobile Search -->
+                <form class="relative" onsubmit="handleSearch(event)">
+                    <input
+                        id="mobileSearchInput"
+                        type="text"
+                        placeholder="Search products..."
+                        class="w-full text-elite-900 dark:text-white bg-elite-100 dark:bg-elite-700 border border-elite-200 dark:border-elite-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500 transition-all duration-300"
+                    />
+                </form>
+                
+                <!-- Mobile Menu Items -->
+                <div class="space-y-2">
+                    <button id="mobileDarkModeToggle" class="w-full flex items-center space-x-3 text-elite-700 dark:text-elite-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-elite-100 dark:hover:bg-elite-700 px-4 py-3 rounded-lg transition-all duration-300">
+                        <svg class="w-5 h-5 hidden dark:block" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                        </svg>
+                        <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                        <span class="font-medium">Light mode</span>
+                    </button>
+                    
+                    <button class="w-full flex items-center space-x-3 text-elite-700 dark:text-elite-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-elite-100 dark:hover:bg-elite-700 px-4 py-3 rounded-lg transition-all duration-300" onclick="handleAuthClick(); closeMobileMenu()">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        <span id="mobileLoginText" class="font-medium">Partner Login</span>
+                    </button>
+                    
+                    <button class="w-full flex items-center space-x-3 text-elite-700 dark:text-elite-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-elite-100 dark:hover:bg-elite-700 px-4 py-3 rounded-lg transition-all duration-300" onclick="openCartModal(); closeMobileMenu()">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13v6a1 1 0 001 1h8a1 1 0 001-1v-6M7 13H5.4"></path>
+                        </svg>
+                        <span class="font-medium">Cart (<span id="mobileCartCount">0</span>)</span>
+                    </button>
+
+                    <!-- 👇 Admin: Products Button in Mobile Menu -->
+                    <button id="mobileAdminProductsBtn"
+                             class="hidden w-full flex items-center space-x-3 bg-gradient-to-r from-gold-500 to-gold-600 text-white px-4 py-3 rounded-lg font-medium transition-all duration-300"
+                             onclick="openAdminProductsModal()">
+                         Products
+                    </button>
+
+                       <!-- Inside mobileMenu -->
+                    <button id="mobileAddPartnerBtn"
+                        class="hidden w-full flex items-center space-x-3 bg-gradient-to-r from-gold-500 to-gold-600 text-white px-4 py-3 rounded-lg font-medium transition-all duration-300"
+                         onclick="openAddPartnerModal()">
+                             Add Partner
+                    </button>
+                   
+                    <button id="mobileUploadBtn" class="w-full flex items-center space-x-3 bg-gradient-to-r from-gold-500 to-gold-600 text-white px-4 py-3 rounded-lg font-medium transition-all duration-300 hidden" onclick="openUploadModal(); closeMobileMenu()">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                        </svg>
+                        <span>Upload Product</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-14 lg:pt-16">
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-br from-elite-900 via-elite-800 to-elite-900 dark:from-elite-950 dark:via-elite-900 dark:to-elite-950 text-white py-12 lg:py-20 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-gold-500/20 to-transparent"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div class="text-center max-w-4xl mx-auto">
+                    <h1 class="text-4xl lg:text-6xl font-serif font-bold mb-6 bg-gradient-to-r from-white to-gold-200 bg-clip-text text-transparent">
+                        Elite Fashion Collection
+                    </h1>
+                    <p class="text-xl lg:text-2xl text-elite-200 mb-8 leading-relaxed">
+                        Discover curated premium products from trusted partners. Experience luxury shopping with exceptional quality and style.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                       
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Filter -->
+        <section id="productsSection" class="bg-white dark:bg-elite-800 shadow-sm border-b border-elite-200 dark:border-elite-700 sticky top-14 lg:top-16 z-30">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-2xl font-serif font-bold text-elite-900 dark:text-white">Our Collections</h2>
+  
+                 <!-- Mobile Search -->
+                <form class="relative" onsubmit="handleSearch(event)">
+                    <input
+                        id="mobileSearchInput"
+                        type="text"
+                        placeholder="Search products..."
+                        class="w-full text-elite-900 dark:text-white bg-elite-100 dark:bg-elite-700 border border-elite-200 dark:border-elite-600 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gold-500 transition-all duration-300"
+                    />
+                </form>
+  
+  
+                    <!--<div class="flex items-center space-x-4">
+                        <select id="sortFilter" class="text-sm border border-elite-300 dark:border-elite-600 rounded-lg px-3 py-2 bg-white dark:bg-elite-700 text-elite-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-gold-500">
+                            <option value="newest">Newest First</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                        </select>
+                    </div>-->
+                </div>
+                <div class="flex space-x-1 overflow-x-auto scrollbar-hide">
+                    <button class="category-btn whitespace-nowrap px-4 py-2 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 text-white text-sm font-medium transition-all duration-300" data-category="all">
+                        All
+                    </button>
+                    <button class="category-btn whitespace-nowrap px-4 py-2 rounded-full bg-elite-100 dark:bg-elite-700 text-elite-700 dark:text-elite-300 hover:bg-gradient-to-r hover:from-gold-500 hover:to-gold-600 hover:text-white text-sm font-medium transition-all duration-300" data-category="Electronics">
+                        Electronics
+                    </button>
+                    <button class="category-btn whitespace-nowrap px-4 py-2 rounded-full bg-elite-100 dark:bg-elite-700 text-elite-700 dark:text-elite-300 hover:bg-gradient-to-r hover:from-gold-500 hover:to-gold-600 hover:text-white text-sm font-medium transition-all duration-300" data-category="Fashion">
+                        Fashion
+                    </button>
+                    <button class="category-btn whitespace-nowrap px-4 py-2 rounded-full bg-elite-100 dark:bg-elite-700 text-elite-700 dark:text-elite-300 hover:bg-gradient-to-r hover:from-gold-500 hover:to-gold-600 hover:text-white text-sm font-medium transition-all duration-300" data-category="Home">
+                        Home
+                    </button>
+                  
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="py-6 lg:py-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Loading Spinner -->
+                <div id="loadingSpinner" class="text-center py-16">
+                    <div class="inline-block w-12 h-12 border-4 border-elite-200 border-t-gold-500 rounded-full animate-spin"></div>
+                    <p class="mt-4 text-elite-600 dark:text-elite-400 font-medium">Loading premium products...</p>
+                </div>
+
+                <!-- Products Grid -->
+                <div id="productsGrid" class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 lg:gap-6 hidden">
+                    <!-- Products will be dynamically inserted here -->
+                </div>
+
+                <!-- No Products Message -->
+                <div id="noProducts" class="text-center py-16 hidden">
+                    <div class="w-24 h-24 mx-auto mb-6 bg-elite-100 dark:bg-elite-700 rounded-full flex items-center justify-center">
+                        <svg class="w-12 h-12 text-elite-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2M4 13h2m0 0v-2a2 2 0 012-2h8a2 2 0 012 2v2M9 21h6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-elite-900 dark:text-white mb-2">No Products Found</h3>
+                    <p class="text-elite-600 dark:text-elite-400 mb-6">We couldn't find any products matching your criteria.</p>
+                    <button onclick="clearFilters()" class="bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300">
+                        Clear Filters
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="bg-elite-100 dark:bg-elite-800 py-16 lg:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl lg:text-4xl font-serif font-bold text-elite-900 dark:text-white mb-4">
+                        Why Choose Elite Fashions
+                    </h2>
+                    <p class="text-xl text-elite-600 dark:text-elite-400 max-w-3xl mx-auto">
+                        Experience premium shopping with our curated selection of quality products from trusted partners.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center group">
+                        <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-gold-400 to-gold-600 rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-elite-900 dark:text-white mb-3">Premium Quality</h3>
+                        <p class="text-elite-600 dark:text-elite-400">Carefully curated products from trusted partners ensuring exceptional quality and authenticity.</p>
+                    </div>
+                    
+                    <div class="text-center group">
+                        <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-gold-400 to-gold-600 rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-elite-900 dark:text-white mb-3">Fast Delivery</h3>
+                        <p class="text-elite-600 dark:text-elite-400">Quick and secure delivery to your doorstep with real-time tracking and updates.</p>
+                    </div>
+                    
+                    <div class="text-center group">
+                        <div class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-gold-400 to-gold-600 rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-elite-900 dark:text-white mb-3">Secure Payment</h3>
+                        <p class="text-elite-600 dark:text-elite-400">Safe and secure payment processing with multiple payment options and buyer protection.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-elite-900 dark:bg-elite-950 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-gold-400 to-gold-600 rounded-xl flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-serif font-bold">Elite Fashions</h3>
+                            <p class="text-sm text-elite-400">Premium Collection</p>
+                        </div>
+                    </div>
+                    <p class="text-elite-300 leading-relaxed">
+                        Discover premium fashion and lifestyle products with our curated collection from trusted partners worldwide.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-6 text-gold-400">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-elite-300 hover:text-white transition-colors duration-300">About Us</a></li>
+                        <li><a href="https://ffasrpolicy.blogspot.com/" class="text-elite-300 hover:text-white transition-colors duration-300">Policy Info</a></li>
+                    </ul>
+                </div>
+                
+                
+                <div>
+  <h4 class="text-lg font-semibold mb-6 text-gold-400">Connect With Us</h4>
+  <div class="flex space-x-4 mb-6">
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/elite__fashions/profilecard/?igsh=MXI2dW9xN21mOWNlbQ%3D%3D" class="w-10 h-10 bg-elite-800 rounded-lg flex items-center justify-center hover:bg-gold-500 transition-colors duration-300" aria-label="Instagram">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5Zm8.25 2.25a.75.75 0 1 1 0 1.5h-.01a.75.75 0 0 1 0-1.5h.01Zm-4.25 1A5.75 5.75 0 1 1 7.75 12a5.75 5.75 0 0 1 5.75-5.75Zm0 1.5A4.25 4.25 0 1 0 16.25 12a4.25 4.25 0 0 0-4.25-4.25Z"/>
+      </svg>
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/916235718185" class="w-10 h-10 bg-elite-800 rounded-lg flex items-center justify-center hover:bg-gold-500 transition-colors duration-300" aria-label="WhatsApp">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 32 32">
+        <path d="M16 2.933c-7.293 0-13.2 5.907-13.2 13.2 0 2.475.693 4.86 2.002 6.938L2 30l7.142-2.758a13.117 13.117 0 0 0 6.858 1.832c7.293 0 13.2-5.907 13.2-13.2S23.293 2.933 16 2.933zm0 23.734c-2.23 0-4.407-.66-6.263-1.905l-.45-.292-4.238 1.637 1.613-4.14-.293-.46a10.583 10.583 0 0 1-1.733-5.85c0-5.888 4.793-10.68 10.68-10.68s10.68 4.792 10.68 10.68-4.793 10.68-10.68 10.68zm5.81-7.957c-.318-.16-1.875-.924-2.166-1.028-.29-.106-.502-.16-.713.16-.211.32-.817 1.03-1.002 1.24-.185.213-.37.239-.688.08-.318-.16-1.34-.493-2.55-1.573-.943-.838-1.58-1.873-1.766-2.19-.185-.32-.02-.493.14-.652.144-.144.32-.371.479-.557.16-.185.212-.319.318-.53.106-.213.053-.398-.026-.558-.08-.16-.713-1.715-.975-2.348-.256-.61-.517-.527-.713-.527h-.61c-.21 0-.552.08-.84.37s-1.1 1.074-1.1 2.622 1.126 3.035 1.284 3.24c.158.213 2.216 3.386 5.38 4.748.752.32 1.34.51 1.797.654.754.24 1.44.206 1.982.125.604-.092 1.875-.766 2.14-1.504.265-.74.265-1.373.186-1.504-.08-.132-.29-.211-.604-.37z"/>
+      </svg>
+    </a>
+
+    <!-- Email -->
+    <a href="elitefashions483.com" class="w-10 h-10 bg-elite-800 rounded-lg flex items-center justify-center hover:bg-gold-500 transition-colors duration-300" aria-label="Email">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.1.89 2 2 2h16c1.11 0 2-.9 2-2V6c0-1.11-.89-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+    </a>
+
+    <!-- Facebook -->
+    <a href="#" class="w-10 h-10 bg-elite-800 rounded-lg flex items-center justify-center hover:bg-gold-500 transition-colors duration-300" aria-label="Facebook">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 5 3.657 9.127 8.438 9.878v-6.988h-2.54V12h2.54V9.797c0-2.507 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.127 22 17 22 12z"/>
+      </svg>
+    </a>
+  </div>
+  <p class="text-elite-300 text-sm">
+    Subscribe to our newsletter for exclusive offers and updates.
+  </p>
+</div>
+
+            </div>
+            
+            <div class="border-t border-elite-700 pt-8 text-center">
+                <p class="text-elite-400">
+                    © 2024 Elite Fashions. All rights reserved. | Premium shopping experience.|Made BY Akshay PK
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    
+    <!-- Auth Modal -->
+    <div id="authModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+        <div class="bg-white dark:bg-elite-800 rounded-2xl shadow-2xl w-full max-w-md mx-4 transform transition-all duration-300">
+            <div class="p-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl font-serif font-bold text-elite-900 dark:text-white mb-2">Partner Login</h2>
+                    <p class="text-elite-600 dark:text-elite-400">Access your partner dashboard</p>
+                </div>
+                
+                <form id="authForm" onsubmit="handleAuth(event)" class="space-y-6">
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-elite-700 dark:text-elite-300 mb-2">Username</label>
+                        <input type="text" id="username" required class="w-full px-4 py-3 border border-elite-300 dark:border-elite-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold-500 bg-white dark:bg-elite-700 text-elite-900 dark:text-white transition-all duration-300">
+                    </div>
+                    
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-elite-700 dark:text-elite-300 mb-2">Password</label>
+                        <input type="password" id="password" required class="w-full px-4 py-3 border border-elite-300 dark:border-elite-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold-500 bg-white dark:bg-elite-700 text-elite-900 dark:text-white transition-all duration-300">
+                    </div>
+                    
+                    <div id="authError" class="text-red-500 text-sm hidden"></div>
+                    
+                    <div class="flex space-x-4">
+                        <button type="button" onclick="closeAuthModal()" class="flex-1 px-6 py-3 border border-elite-300 dark:border-elite-600 text-elite-700 dark:text-elite-300 rounded-lg hover:bg-elite-100 dark:hover:bg-elite-700 transition-all duration-300">
+                            Cancel
+                        </button>
+                        <button type="submit" class="flex-1 px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white rounded-lg font-semibold transition-all duration-300">
+                            Login
+                        </button>
+                    </div>
+                </form>
+              
+       
+              
+     <br><br><br><div class="max-w-md mx-auto mb-4">
+
+    <!-- Toggle Button -->
+
+    <button id="toggle-instructions" class="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-white bg-yellow-500 rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-400">
+
+      How to become a partner.
+
+      <svg id="chevron-icon" class="w-4 h-4 ml-2 transition-transform transform rotate-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+
+      </svg>
+
+    </button>
+
+    <!-- Instruction Box in a Styled Container -->
+
+    <div id="instruction-box" class="mt-4 hidden">
+
+      <div class="bg-yellow-50 border border-yellow-300 rounded-md p-4 text-sm text-gray-800 dark:text-gray-300 dark:bg-gray-800 dark:border-yellow-600">
+
+
+<p class="mb-1">1. Must have a <strong>registered shop</strong>.</p>
+<p class="mb-1">2. Should offer <strong>courier/delivery</strong> services.</p>
+<p class="mb-1">3. Provide <strong>shop name, owner, phone, location</strong>.</p>
+<p class="mb-1">4. Contact admin via <strong>Instagram</strong> or <strong>WhatsApp</strong> for access.</p>
+<p class="mb-1">5. Use <strong>Partner Login</strong> to upload your products.</p>
+
+<p class="mt-3">📞 <a href="tel:6235718185" class="text-emerald-600 hover:underline">6235718185</a></p>
+<p>📸 <a href="https://www.instagram.com/x_kshay?igsh=MWgwNDhpZ2Zyc2RxeQ==" target="_blank" class="text-emerald-600 hover:underline">@x_kshay</a></p>
+
+        
+      </div>
+
+    </div>
+
+  </div>
+              
+              
+              
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div id="uploadModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 hidden overflow-y-auto">
+        <div class="bg-white dark:bg-elite-800 rounded-2xl shadow-2xl w-full max-w-2xl mx-4 my-8 transform transition-all duration-300">
+            <div class="p-8">
+                <div class="text-center mb-8">
+               <br>   <br>  <br>  <br>  <br>
+                    <h2 class="text-2xl font-serif font-bold text-elite-900 dark:text-white mb-2">Upload New Product</h2>
+                    <p class="text-elite-600 dark:text-elite-400">Add a premium product to your collection</p>
+                </div>
+                
+                <form id="uploadForm" onsubmit="handleProductUpload(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="productName" class="block text-sm font-medium text-elite-700 dark:text-elite-300 mb-2">Product Name</label>
+                            <input type="text" id="productName" name="productName" required class="w-full px-4 py-3 border border-elite-300 dark:border-elite-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold-500 bg-white dark:bg-elite-700 text-elite-900 dark:text-white transition-all duration-300">
+                        </div>
+                        
+                        <div>
+                            <label for="productPrice" class="block text-sm font-medium text-elite-700 dark:text-elite-300 mb-2">Price (₹)</label>
+                            <input type="number" id="productPrice" name="productPrice" min="0" step="0.01" required class="w-full px-4 py-3 border border-elite-300 dark:border-elite-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold-500 bg-white dark:bg-elite-700 text-elite-900 dark:text-white transition-all duration-300">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="productCategory" class="block text-sm font-medium text-elite-700 dark:text-elite-300 mb-2">Category</label>
+                        <select id="productCategory" name="productCategory" required class="w-full px-4 py-3 border border-elite-300 dark:border-elite-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold-500 bg-white dark:bg-elite-700 text-elite-900 dark:text-white transition-all duration-300">
+                            <option value="">Select Category</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Fashion">Fashion</option>
+                            <option value="Home">Home & Kitchen</option>
+                            <option value="Books">Books</option>
+                            <option value="Sports">Sports</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="productDescription" class="block text-sm font-medium text-elite-700 dark:text-elite-300 mb-2">Description</label>
+                        <textarea id="productDescription" name="productDescription" rows="3" required class="w-full px-4 py-3 border border-elite-300 dark:border-elite-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gold-500 bg-white dark:bg-elite-700 text-elite-900 dark:text-white transition-all duration-300"></textarea>
+                    </div>
+                    
+                 
+      
+                  
+    <!-- Image Upload Fields -->
+<div class="mb-4">
+  <label class="block font-medium mb-2">Image 1 <span class="text-red-500">*</span></label>
+  <input type="file" accept="image/*" onchange="handleImageUpload(this, 'productImage')" required class="block w-full border p-2 rounded">
+  <input type="hidden" name="productImage" id="productImage">
+  <p id="imageStatus-productImage" class="text-sm mt-1 hidden"></p>
+</div>
+
+<div class="mb-4">
+  <label class="block font-medium mb-2">Image 2</label>
+  <input type="file" accept="image/*" onchange="handleImageUpload(this, 'productImage2')" class="block w-full border p-2 rounded">
+  <input type="hidden" name="productImage2" id="productImage2">
+  <p id="imageStatus-productImage2" class="text-sm mt-1 hidden"></p>
+</div>
+
+<div class="mb-4">
+  <label class="block font-medium mb-2">Image 3</label>
+  <input type="file" accept="image/*" onchange="handleImageUpload(this, 'productImage3')" class="block w-full border p-2 rounded">
+  <input type="hidden" name="productImage3" id="productImage3">
+  <p id="imageStatus-productImage3" class="text-sm mt-1 hidden"></p>
+</div>              
+                  
+                                     
+                    <div id="uploadError" class="text-red-500 text-sm hidden"></div>
+                    
+                    <div class="flex space-x-4">
+                        <button type="button" onclick="closeUploadModal()" class="flex-1 px-6 py-3 border border-elite-300 dark:border-elite-600 text-elite-700 dark:text-elite-300 rounded-lg hover:bg-elite-100 dark:hover:bg-elite-700 transition-all duration-300">
+                            Cancel
+                        </button>
+                        <button type="submit" id="uploadSubmitBtn" 
+                                class="flex-1 px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white rounded-lg font-semibold transition-all duration-300">
+                            Upload Product
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 hidden overflow-y-auto">
+        <div class="bg-white dark:bg-elite-800 rounded-2xl shadow-2xl w-full max-w-4xl mx-4 my-8 transform transition-all duration-300">
+            <div id="productModalContent" class="p-8">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 hidden overflow-y-auto">
+        <div class="bg-white dark:bg-elite-800 rounded-2xl shadow-2xl w-full max-w-2xl mx-4 my-8 transform transition-all duration-300">
+            <div class="p-8">
+                <div class="flex items-center justify-between mb-8">
+                    <h2 class="text-2xl font-serif font-bold text-elite-900 dark:text-white">Shopping Cart</h2>
+                    <button onclick="closeCartModal()" class="text-elite-500 hover:text-elite-700 dark:hover:text-elite-300 transition-colors duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div id="cartItems" class="space-y-4 mb-8">
+                    <!-- Cart items will be dynamically inserted -->
+                </div>
+                
+                <div id="cartTotal" class="border-t border-elite-200 dark:border-elite-600 pt-6">
+                    <!-- Cart total will be dynamically inserted -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="addPartnerModal" class="hidden fixed inset-0 z-50 flex items-center justify-center modal-backdrop">
+  <div class="bg-white dark:bg-elite-800 p-6 rounded-xl w-full max-w-md animate-scaleIn">
+    <h2 class="text-xl font-bold mb-4">Add New Partner</h2>
+    <form id="addPartnerForm" onsubmit="handleAddPartner(event)">
+      <div class="mb-4">
+        <label class="block mb-1 font-medium">Username</label>
+        <input type="text" id="newPartnerUsername" required class="w-full border border-elite-300 rounded-lg px-3 py-2">
+      </div>
+      <div class="mb-4">
+        <label class="block mb-1 font-medium">Password</label>
+        <input type="password" id="newPartnerPassword" required class="w-full border border-elite-300 rounded-lg px-3 py-2">
+      </div>
+      <div class="mb-4">
+        <label class="block mb-1 font-medium">Database Name</label>
+        <input type="text" id="newPartnerDatabase" required class="w-full border border-elite-300 rounded-lg px-3 py-2">
+      </div>
+      <div id="addPartnerError" class="text-red-500 text-sm mb-2"></div>
+      <div class="flex justify-end space-x-2">
+        <button type="button" onclick="closeAddPartnerModal()" class="flex-1 px-6 py-3 border border-elite-300 dark:border-elite-600 text-elite-700 dark:text-elite-300 rounded-lg hover:bg-elite-100 dark:hover:bg-elite-700 transition-all duration-300">
+            Cancel</button>
+        <button type="submit" class="btn-primary">Add Partner</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+    <!-- ✅ Admin Products Modal -->
+<div id="adminProductsModal" class="hidden fixed inset-0 z-50 flex items-center justify-center modal-backdrop overflow-auto">
+  <div class="bg-white dark:bg-elite-800 p-6 rounded-xl w-full max-w-5xl max-h-[90vh] overflow-y-auto animate-scaleIn">
+    <h2 class="text-xl font-bold mb-4">All Products</h2>
+    
+    <!-- This is where products will be rendered -->
+    <div id="adminProductsList" class="space-y-4">
+      <p class="text-elite-600 dark:text-elite-400">No products loaded yet.</p>
+    </div>
+
+    <div class="flex justify-end mt-4">
+      <button onclick="closeAdminProductsModal()" class="flex-1 px-6 py-3 border border-elite-300 dark:border-elite-600 text-elite-700 dark:text-elite-300 rounded-lg hover:bg-elite-100 dark:hover:bg-elite-700 transition-all duration-300">
+        Close</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ✅ Edit Product Modal -->
+<div id="editProductModal" class="hidden fixed inset-0 z-50 flex items-center justify-center modal-backdrop">
+  <div class="bg-white dark:bg-elite-800 p-6 rounded-xl w-full max-w-md animate-scaleIn">
+    <h2 class="text-xl font-bold mb-4">Edit Product</h2>
+    <form id="editProductForm" onsubmit="saveProductEdit(event)">
+      <input type="hidden" id="editProductId">
+      <input type="hidden" id="editProductSource">
+
+      <div class="mb-4">
+        <label class="block mb-1 font-medium">Name</label>
+        <input type="text" id="editProductName" required class="w-full border border-elite-300 rounded-lg px-3 py-2">
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 font-medium">Image URL</label>
+        <input type="text" id="editProductImage" required class="w-full border border-elite-300 rounded-lg px-3 py-2">
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 font-medium">Price</label>
+        <input type="number" id="editProductPrice" required class="w-full border border-elite-300 rounded-lg px-3 py-2">
+      </div>
+
+      <div class="mb-4">
+        <label class="block mb-1 font-medium">Description</label>
+        <textarea id="editProductDescription" rows="3" class="w-full border border-elite-300 rounded-lg px-3 py-2"></textarea>
+      </div>
+
+      <div class="flex justify-end space-x-2">
+        <button type="button" onclick="closeEditProductModal()" class="btn-primary">Cancel</button>
+        <button type="submit" class="btn-primary">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+    <!-- Go to Top Button -->
+    <button id="goTopBtn" onclick="scrollToTop()" class="fixed bottom-6 right-6 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 z-40 hidden">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <!-- Custom JavaScript -->
+  
+  <script>
+    const toggleBtn = document.getElementById('toggle-instructions');
+    const box = document.getElementById('instruction-box');
+    const icon = document.getElementById('chevron-icon');
+
+    toggleBtn.addEventListener('click', () => {
+      box.classList.toggle('hidden');
+      icon.classList.toggle('rotate-180');
+    });
+  </script>
+  
+    <script src="kkk.js"></script>
+  
+  
+   <script src="apload3.js"></script>
+  
+  
+</body>
+</html>

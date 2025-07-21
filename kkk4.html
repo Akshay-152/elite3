@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Fashions Chat - Premium Experience</title>
+    <meta property="og:image" content="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNjLoPl2GV52WroW3s-hr-Nndp3gS8tDq0TPbuS-NZM5AUSYcanizwNRPPWUUQ5D6FKwUKOVMyIwqOyPoNN0O_9dANet5bXksLl-uaepqC2CkEIx2q5o5nTY8i8Pdx9e-98pDjnS5oZOM1OkCwXehEDpjj5pvQQoHwuJ5tHhHp7IdkAjxH1Q2671smTkXO/s1600/1000097025.jpg">
+    <link rel="icon" type="image/png" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVcgbVjtZOurxM5i98pP5tehtZqa0bIUFL2UfyTjNFZ6olqU1gE6DkVfYamQdR9dZVuNgUTROdPExwbX9wQ2sYjkVXNGGAEA4QbG0dc63LjPuskPAiMcJZPsayM2RmjJB2hSIU86szKFPDpTSgvfIO7xGdn-fvmebaJJSN7NXMjCvMnKfDYv9r2SbWc1AX/s1600/1000098381.png">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  
+   <!-- Custom Security Script -->
+  <script src="https://cdn.jsdelivr.net/gh/Akshay-152/akshay/disabled.js"></script>
+  
+  
+    <!-- Firebase SDK v9 -->
+    <script type="module">
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCNl1eLCccchmMvUNf29EtTUbMn_FO_nuU",
+            authDomain: "data-4e1c7.firebaseapp.com",
+            projectId: "data-4e1c7",
+            storageBucket: "data-4e1c7.firebasestorage.app",
+            messagingSenderId: "844230746094",
+            appId: "1:844230746094:web:7834ae9aaf29eccc3d38ff",
+            measurementId: "G-L4ZQ1CL7T8"
+        };
+
+      
+
+        // Make configurations globally available
+        window.firebaseConfig = firebaseConfig;
+       
+    </script>
+    
+    <!-- Custom Styles  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Akshay-152/ai/kkk5.css">
+</head>
+<body data-theme="light">
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading Elite Fashions Chat...</p>
+        </div>
+    </div>
+
+    <!-- Authentication Panel -->
+    <div id="authPanel" class="auth-panel">
+        <div class="auth-content">
+            <div class="auth-header">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVcgbVjtZOurxM5i98pP5tehtZqa0bIUFL2UfyTjNFZ6olqU1gE6DkVfYamQdR9dZVuNgUTROdPExwbX9wQ2sYjkVXNGGAEA4QbG0dc63LjPuskPAiMcJZPsayM2RmjJB2hSIU86szKFPDpTSgvfIO7xGdn-fvmebaJJSN7NXMjCvMnKfDYv9r2SbWc1AX/s1600/1000098381.png" alt="Elite Fashions">
+                <h1>Elite Fashions Chat</h1>
+                <p>Premium messaging experience</p>
+            </div>
+            
+            <div id="errorMessage" class="error-message"></div>
+            <div id="successMessage" class="success-message"></div>
+            
+            <form id="authForm">
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" placeholder="Email address" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                
+                <div class="input-group" id="nameGroup" style="display: none;">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="displayName" placeholder="Display Name">
+                </div>
+                
+                <div class="auth-buttons">
+                    <button type="submit" class="btn btn-primary" id="authSubmit">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Log In
+                    </button>
+                  
+                  <!--  class="btn btn-secondary"-->
+                    <button type="button" class="btn btn-primary" id="toggleAuth">
+                        <i class="fas fa-user-plus"></i>
+                        Need an account,SignIn
+                    </button>
+                  
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='https://eelitefashions.blogspot.com/?m=0'">Home</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="mainApp" class="app-container" style="display: none;">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVcgbVjtZOurxM5i98pP5tehtZqa0bIUFL2UfyTjNFZ6olqU1gE6DkVfYamQdR9dZVuNgUTROdPExwbX9wQ2sYjkVXNGGAEA4QbG0dc63LjPuskPAiMcJZPsayM2RmjJB2hSIU86szKFPDpTSgvfIO7xGdn-fvmebaJJSN7NXMjCvMnKfDYv9r2SbWc1AX/s1600/1000098381.png" alt="Elite Fashions">
+                    <span>Elite Fashions Chat</span>
+                </div>
+                
+                <div class="header-controls">
+                    <button id="homeBtn" class="theme-toggle" onclick="window.open('https://eelitefashions.blogspot.com/?m=0', '_blank')" title="Visit Elite Fashions">
+                        <i class="fas fa-home"></i>
+                    </button>
+                    <button id="themeToggle" class="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <div class="user-menu">
+                        <button id="userMenuBtn" class="user-menu-btn">
+                            <div class="avatar" id="headerAvatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <span id="headerUserName">User</span>
+                        </button>
+                        <div id="userMenuDropdown" class="user-menu-dropdown">
+                            <div class="menu-item" id="toggleAdminPanel">
+                                <i class="fas fa-cog"></i>
+                                <span>Admin Panel</span>
+                            </div>
+                            <div class="menu-item" id="userProfile">
+                                <i class="fas fa-user-circle"></i>
+                                <span>Profile</span>
+                            </div>
+                            <div class="menu-item" id="logoutBtn">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span>Logout</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button id="menuToggle" class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <div class="user-profile">
+                    <div class="avatar" id="sidebarAvatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info">
+                        <h3 id="currentUserName">User</h3>
+                        <div class="user-status">
+                            <div class="status-dot online"></div>
+                            <span>Online</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="search-container">
+                    <div class="search-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="search-input" id="userSearch" placeholder="Search users...">
+                        <button id="clearSearch" class="clear-search">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-content">
+                <div class="section-header">
+                    <h4 id="sectionTitle">Contacts</h4>
+                    <span id="userCount" class="user-count">0</span>
+                </div>
+                
+                <div class="user-list" id="userList">
+                    <!-- Admin contact for regular users -->
+                    <div id="adminContact" class="user-item admin-contact" style="display: none;">
+                        <div class="avatar admin-avatar">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="user-details">
+                            <h4>Admin Support</h4>
+                            <p>Get help and support</p>
+                        </div>
+                        <div class="online-indicator"></div>
+                    </div>
+                    <!-- User items will be populated here -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-container">
+            <!-- Welcome Screen -->
+            <div id="welcomeScreen" class="welcome-screen">
+                <div class="welcome-content">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVcgbVjtZOurxM5i98pP5tehtZqa0bIUFL2UfyTjNFZ6olqU1gE6DkVfYamQdR9dZVuNgUTROdPExwbX9wQ2sYjkVXNGGAEA4QbG0dc63LjPuskPAiMcJZPsayM2RmjJB2hSIU86szKFPDpTSgvfIO7xGdn-fvmebaJJSN7NXMjCvMnKfDYv9r2SbWc1AX/s1600/1000098381.png" alt="Elite Fashions" class="welcome-logo">
+                    <h2>Welcome to Elite Fashions Chat</h2>
+                    <p id="welcomeMessage">Select a contact to start messaging</p>
+                    <div class="welcome-features">
+                        <div class="feature">
+                            <i class="fas fa-comments"></i>
+                            <span>Real-time messaging</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure communication</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Mobile friendly</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Interface -->
+            <div id="chatInterface" class="chat-interface" style="display: none;">
+                <!-- Chat Header -->
+                <div class="chat-header">
+                    <div class="chat-user-info">
+                        <button id="backToWelcome" class="back-btn mobile-only">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <div class="avatar" id="chatUserAvatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="chat-user-details">
+                            <h3 id="chatUserName">User</h3>
+                            <span id="chatUserStatus" class="user-status-text">
+                                <div class="status-dot"></div>
+                                Online
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-actions">
+                        <button id="emailUserBtn" class="action-btn email-btn" title="Send Email">
+                            <i class="fas fa-envelope"></i>
+                        </button>
+                        <button id="clearChatBtn" class="action-btn clear-btn" title="Clear Chat">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                        <button id="requestFeedbackBtn" class="action-btn" title="Request Feedback">
+                            <i class="fas fa-star-half-alt"></i>
+                        </button>
+                        <button id="closeChatBtn" class="action-btn close-btn" title="Close Chat">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Messages Area -->
+                <div class="messages-container" id="messagesContainer">
+                    <div id="messagesLoading" class="messages-loading">
+                        <div class="loading-spinner small">
+                            <div class="spinner"></div>
+                        </div>
+                        <p>Loading messages...</p>
+                    </div>
+                    <!-- Messages will be populated here -->
+                </div>
+                
+                <!-- Typing Indicator -->
+                <div id="typingIndicator" class="typing-indicator" style="display: none;">
+                    <div class="typing-dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <span>Someone is typing...</span>
+                </div>
+                
+                <!-- Message Input -->
+                <div class="message-input-container">
+                    <form id="messageForm" class="message-form">
+                        <div class="input-wrapper">
+                            <input type="text" id="messageInput" class="message-input" placeholder="Type a message..." autocomplete="off" maxlength="1000">
+                            <div class="input-actions">
+                                <button type="button" id="emojiBtn" class="action-btn" title="Add emoji">
+                                    <i class="fas fa-smile"></i>
+                                </button>
+
+                        <!-- Add inside your chat form, near attach or emoji button class="emoji-btn" class="attach-btn"-->
+                        <button type="button" id="recordAudioBtn" class="action-btn" title="Record Voice">
+                         <i class="fas fa-microphone"></i>
+                        </button>
+
+                                <button type="button" id="attachBtn" class="action-btn" title="Attach file">
+                                    <i class="fas fa-paperclip"></i>
+                                </button>
+                                <input type="file" id="imageUploadInput" accept="image/*" style="display: none;">
+
+                            </div>
+                        </div>
+
+                        <button type="submit" class="send-btn" id="sendBtn" title="Send message">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div class="character-count">
+                        <span id="charCount">0</span>/1000
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Admin Panel -->
+        <div id="adminPanel" class="admin-panel">
+            <div class="admin-header">
+                <h2>
+                    <i class="fas fa-shield-alt"></i>
+                    Admin Panel
+                </h2>
+                <button id="closeAdminBtn" class="close-admin-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="admin-content">
+                <div class="admin-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalUsers">0</h3>
+                            <p>Total Users</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalChats">0</h3>
+                            <p>Active Chats</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="onlineUsers">0</h3>
+                            <p>Online Now</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="admin-users">
+                    <div class="admin-section-header">
+                        <h3>User Management</h3>
+                        <button id="refreshUsers" class="refresh-btn">
+                            <i class="fas fa-sync-alt"></i>
+                            Refresh
+                        </button>
+                    </div>
+                    <div class="admin-user-list" id="adminUserList">
+                        <!-- Admin user items will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- Modals -->
+<div id="emailModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Send Email</h3>
+      <button id="closeEmailModal" class="close-modal-btn">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <form id="emailForm" class="modal-form" onsubmit="event.preventDefault(); send_messages();">
+
+        <div id="status" style="margin-top: 10px; color: red;"></div>
+        
+      <div class="input-group">
+        <label for="emailTo">To:</label>
+        <input type="email" id="emailTo" readonly>
+      </div>
+
+      <div class="input-group">
+        <label for="email1">Re-type Email:</label>
+        <input type="email" id="email1" placeholder="Re-type recipient's email" required>
+      </div>
+
+      <div class="input-group">
+        <label for="emailSubject">Subject:</label>
+        <input type="text" id="emailSubject" required>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" id="cancelEmail" class="btn btn-secondary">Cancel</button>
+        <button type="button" onclick="send_message()" class="btn btn-primary">
+          <i class="fas fa-paper-plane"></i> Send Email
+        </button>
+      </div>
+
+      
+    </form>
+    
+  </div>
+</div>
+
+    <div id="emojiPicker" class="emoji-picker" style="display: none;">
+        <div class="emoji-grid">
+            <!-- Emoji buttons will be populated here -->
+        </div>
+
+    </div>    
+
+<div id="logoutModal" class="auth-panel" style="display: none;">
+  <div class="auth-content">
+    <h2>Are you sure you want to logout?</h2>
+    <div class="auth-buttons">
+      <button class="btn btn-danger" id="confirmLogout">Yes, Logout</button>
+      <button class="btn btn-secondary" id="cancelLogout">Cancel</button>
+    </div>
+  </div>
+</div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+
+<!-- Address Modal -->
+<div id="addressModal" class="auth-panel" style="display: none;">
+  <div class="auth-content">
+    <div class="auth-header">
+      <h1>Enter Your Address</h1>
+      <p>This is required for delivery & verification</p>
+    </div>
+    <form id="addressForm">
+      <div class="input-group"><input type="text" id="fullName" placeholder="Full Name" required></div>
+      <div class="input-group"><input type="tel" id="phone" placeholder="Phone Number" required></div>
+      <div class="input-group"><input type="text" id="address" placeholder="Address" required></div>
+      <div class="input-group"><input type="text" id="city" placeholder="City" required></div>
+      <div class="input-group"><input type="text" id="state" placeholder="State" required></div>
+      <div class="input-group"><input type="text" id="zipCode" placeholder="ZIP Code" required></div>
+      <button class="btn btn-primary" type="submit">Save Address</button>
+    </form>
+  </div>
+</div>
+   
+
+    <!-- Custom JavaScript -->
+    <script src="kkk4.js"></script>
+</body>
+</html>

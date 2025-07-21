@@ -23,12 +23,6 @@ let currentCategory = 'all';
 let currentSort = 'newest';
 let darkMode = localStorage.getItem('elite_darkMode') === 'true';
 
-// Authentication credentials mapping
-const userCredentials = {
-    'f390': { password: 'f390', database: 'productslap' },
-
-    '123456': { password: '123456', database: 'products2lap' }
-};
 
 // Initialize Application
 document.addEventListener("DOMContentLoaded", () => {
@@ -443,9 +437,7 @@ async function loadAdminProducts() {
     const partnersSnapshot = await db.collection('partner_database').get();
     const partnerCollections = partnersSnapshot.docs.map(doc => doc.data().databaseName);
 
-    // ✅ Optionally add static collections too
-    partnerCollections.push('products1lap', 'products2lap');
-
+    
     // ✅ Load all collections
     for (const collectionName of partnerCollections) {
       const snapshot = await db.collection(collectionName).get();
@@ -711,8 +703,7 @@ async function loadProducts() {
     const partnersSnapshot = await db.collection('partner_database').get();
     const allPartnerCollections = partnersSnapshot.docs.map(doc => doc.data().databaseName);
 
-    // Also add any static collections if you have them
-    allPartnerCollections.push('products1lap', 'products2lap');
+    
 
     // Load all partner collections dynamically
     for (const collectionName of allPartnerCollections) {
@@ -975,7 +966,7 @@ function openProductModal(productId, source) {
                     <div class="flex items-center justify-between">
                         <span class="text-elite-700 dark:text-elite-300 font-medium">Partner:</span>
                         <span class="text-elite-900 dark:text-white font-semibold">
-                            ${product.source === 'products1lap' ? 'Partner 1' : 'Partner 2'}
+                            ${product.source === 'f390' ? 'Partner 1' : 'Partner 2'}
                         </span>
                     </div>
                 </div>

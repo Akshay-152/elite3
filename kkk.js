@@ -640,19 +640,24 @@ async function handleProductUpload(event) {
         }
         
         const productData = {
-            name: name,
-            price: price,
-            category: category,
-            description: description,
-            image: image,
-            image2: formData.get('productImage2').trim() || '',
-            image3: formData.get('productImage3').trim() || '',
-            uniqueCode: uniqueCode,
-            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-            createdBy: currentUser,
-            rating: Math.floor(Math.random() * 2) + 4, // Random rating 4-5
-            reviews: Math.floor(Math.random() * 100) + 10 // Random reviews 10-110
+
+        name: name,
+        price: price,
+        category: category,
+        description: description,
+        image: image,
+        image2: formData.get('productImage2').trim() || '',
+        image3: formData.get('productImage3').trim() || '',
+        image4: formData.get('productImage4').trim() || '',
+        image5: formData.get('productImage5').trim() || '',
+        uniqueCode: uniqueCode,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        createdBy: currentUser,
+        rating: Math.floor(Math.random() * 2) + 4,
+        reviews: Math.floor(Math.random() * 100) + 10
+
         };
+
         
         // Validate additional image URLs if provided
         if (productData.image2 && !isValidURL(productData.image2)) {
@@ -661,7 +666,10 @@ async function handleProductUpload(event) {
         if (productData.image3 && !isValidURL(productData.image3)) {
             throw new Error('Please enter a valid URL for Image 3 or leave it empty');
         }
-        
+        if (productData.image4 && !isValidURL(productData.image4)) {
+            throw new Error('Please enter a valid URL for Image 4 or leave it empty');
+        }
+
         await db.collection(currentDatabase).add(productData);
         
         closeUploadModal();
@@ -885,14 +893,14 @@ function openProductModal(productId, source) {
     const content = document.getElementById('productModalContent');
     
     // Build image gallery with slider navigation
-    const images = [product.image, product.image2, product.image3].filter(img => img && img.trim());
+    const images = [product.image, product.image2, product.image3, product.image4].filter(img => img && img.trim());
     currentProductImages = images;
     currentImageIndex = 0;
     const imageGallery = images.length > 1 ? `
        <div> <br> <br> <br><br><br>
  <br> <br> <br><br><br></div> <div class="space-y-4">
             <div id="mainImageContainer" class="relative group">
-                <img id="mainImage" src="${images[0]}" alt="${escapeHtml(product.name)}" class="w-full h-96 object-cover rounded-lg transition-transform duration-300">
+                <img id="mainImage" src="${images[0]}" alt="${escapeHtml(product.name)}" class="w-full h-96 object-cover rounded-lg transition-transform duration-300" onclick="openZoom(this.src)">
                 <button onclick="previousImage()" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
@@ -919,7 +927,8 @@ function openProductModal(productId, source) {
             </div>
         </div>
     ` : `
-        <img src="${product.image}" alt="${escapeHtml(product.name)}" class="w-full h-96 object-cover rounded-lg">
+        <img src="${product.image}" alt="${escapeHtml(product.name)}" class="w-full h-96 object-cover rounded-lg " >
+        
     `;
     
     content.innerHTML = `
@@ -1004,6 +1013,23 @@ function closeProductModal() {
     modal.classList.add('hidden');
     modal.classList.remove('modal-backdrop');
 }
+
+// Zoom Image Functionality
+function openZoom(src) {
+  const zoomViewer = document.getElementById('zoomViewer');
+  const zoomedImage = document.getElementById('zoomedImage');
+
+  zoomedImage.src = src;
+  zoomViewer.classList.remove('hidden');
+  document.body.classList.add('overflow-hidden');
+}
+
+function closeZoom() {
+  const zoomViewer = document.getElementById('zoomViewer');
+  zoomViewer.classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
+}
+
 
 // Global variable to track current image index
 let currentImageIndex = 0;
@@ -1301,10 +1327,22 @@ function buyNow(productId, source) {
         return;
     }
 
-    const msg = `Hi! I'm interested in "${product.name}" priced at ₹${product.price}, code = ${product.uniqueCode}`;
+   /* const msg = `Hi! I'm interested in "${product.name}" priced at ₹${product.price}, code = ${product.uniqueCode}`;
     const encodedMsg = encodeURIComponent(msg);
     const targetURL = `https://onlinech0t.blogspot.com/?m=0&message=${encodedMsg}`;
+    window.open(targetURL, '_blank'); */
+
+    // WhatsApp message format
+
+     const msg = `Hi! I'm interested in "${product.name}" priced at ₹${product.price}, code = ${product.uniqueCode}`;
+    const encodedMsg = encodeURIComponent(msg);
+    
+    // WhatsApp API link to message a specific number
+    const whatsappNumber = '916235718185'; // without "+" and spaces
+    const targetURL = `https://wa.me/${whatsappNumber}?text=${encodedMsg}`;
+
     window.open(targetURL, '_blank');
+
 }
 
 // Toggle Definition Function

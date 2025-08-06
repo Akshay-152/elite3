@@ -97,8 +97,8 @@
     
 
 
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="kkk.css">
+    <!-- Custom Style   https://cdn.jsdelivr.net/gh/Akshay-152/elite3/kkk.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Akshay-152/elite3/kkk.css">
 
 
 
@@ -116,14 +116,37 @@
                         <span class="hamburger-line block w-5 h-0.5 bg-current transform transition-transform duration-300 translate-y-1"></span>
                     </div>
                 </button>
+              
+              
+              
+              
+                                <button class="flex items-center space-x-1 text-elite-700 dark:text-elite-300 hover:text-gold-600 dark:hover:text-gold-400 hover:bg-elite-100 dark:hover:bg-elite-700 px-3 py-1.5 rounded-lg transition-all duration-300 relative text-sm" onclick="openCartModal()">
+
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13v6a1 1 0 001 1h8a1 1 0 001-1v-6M7 13H5.4"></path>
+
+                        </svg>
+
+                        <span class="font-medium">Cart</span>
+
+                        <span id="cartCount" class="absolute -top-1 -right-1 bg-gold-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center hidden text-xs">0</span>
+
+                    </button>
+
+                    
                 
                 <!-- Logo -->
                 <div class="flex items-center space-x-2 cursor-pointer group" onclick="goHome()">
                     <div class="w-8 h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-gold-400 to-gold-600 rounded-lg flex items-center justify-center transform group-hover:scale-105 transition-transform duration-300">
-                        <svg class="w-4 h-4 lg:w-5 lg:h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                        </svg>
+                     <img 
+                         src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVcgbVjtZOurxM5i98pP5tehtZqa0bIUFL2UfyTjNFZ6olqU1gE6DkVfYamQdR9dZVuNgUTROdPExwbX9wQ2sYjkVXNGGAEA4QbG0dc63LjPuskPAiMcJZPsayM2RmjJB2hSIU86szKFPDpTSgvfIO7xGdn-fvmebaJJSN7NXMjCvMnKfDYv9r2SbWc1AX/s1600/1000098381.png" 
+                         alt="icon"
+                         class="w-8 h-8 lg:w-10 lg:h-10 object-contain rounded-lg"
+                      />
                     </div>
+                  
+                  
                     <div>
                         <h1 class="text-lg lg:text-xl font-serif font-bold text-elite-900 dark:text-white">Elite Fashions</h1>
                         <p class="text-xs text-elite-500 dark:text-elite-400 hidden sm:block">Premium Collection</p>
@@ -258,7 +281,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                 <div class="text-center max-w-4xl mx-auto">
                     <h1 class="text-4xl lg:text-6xl font-serif font-bold mb-6 bg-gradient-to-r from-white to-gold-200 bg-clip-text text-transparent">
-                        Elite Fashion Collection
+                        Elite Fashions Collection
                     </h1>
                     <p class="text-xl lg:text-2xl text-elite-200 mb-8 leading-relaxed">
                         Discover curated premium products from trusted partners. Experience luxury shopping with exceptional quality and style.
@@ -398,9 +421,13 @@
                 <div>
                     <div class="flex items-center space-x-3 mb-6">
                         <div class="w-10 h-10 bg-gradient-to-br from-gold-400 to-gold-600 rounded-xl flex items-center justify-center">
-                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                            </svg>
+                            
+                             <img 
+                         src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgVcgbVjtZOurxM5i98pP5tehtZqa0bIUFL2UfyTjNFZ6olqU1gE6DkVfYamQdR9dZVuNgUTROdPExwbX9wQ2sYjkVXNGGAEA4QbG0dc63LjPuskPAiMcJZPsayM2RmjJB2hSIU86szKFPDpTSgvfIO7xGdn-fvmebaJJSN7NXMjCvMnKfDYv9r2SbWc1AX/s1600/1000098381.png" 
+                         alt="icon"
+                         class="w-8 h-8 lg:w-10 lg:h-10 object-contain rounded-lg"
+                        />
+
                         </div>
                         <div>
                             <h3 class="text-xl font-serif font-bold">Elite Fashions</h3>
@@ -461,7 +488,7 @@
             
             <div class="border-t border-elite-700 pt-8 text-center">
                 <p class="text-elite-400">
-                    © 2024 Elite Fashions. All rights reserved. | Premium shopping experience.|Made BY Akshay PK
+                    © 2024 Elite Fashions. All rights reserved. | Premium shopping experience.| Made BY Akshay PK
                 </p>
             </div>
         </div>
@@ -611,7 +638,22 @@
   <input type="file" accept="image/*" onchange="handleImageUpload(this, 'productImage3')" class="block w-full border p-2 rounded">
   <input type="hidden" name="productImage3" id="productImage3">
   <p id="imageStatus-productImage3" class="text-sm mt-1 hidden"></p>
-</div>              
+</div>   
+
+<div class="mb-4">
+  <label class="block font-medium mb-2">Image 4</label>
+  <input type="file" accept="image/*" onchange="handleImageUpload(this, 'productImage4')" class="block w-full border p-2 rounded">
+  <input type="hidden" name="productImage4" id="productImage4">
+  <p id="imageStatus-productImage4" class="text-sm mt-1 hidden"></p>
+</div>
+
+<div class="mb-4">
+  <label class="block font-medium mb-2">Image 5</label>
+  <input type="file" accept="image/*" onchange="handleImageUpload(this, 'productImage5')" class="block w-full border p-2 rounded">
+  <input type="hidden" name="productImage5" id="productImage5">
+  <p id="imageStatus-productImage5" class="text-sm mt-1 hidden"></p>
+</div>
+
                   
                                      
                     <div id="uploadError" class="text-red-500 text-sm hidden"></div>
@@ -662,6 +704,19 @@
             </div>
         </div>
     </div>
+
+
+
+    <!-- Image Zoom Viewer -->
+<div id="zoomViewer" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-[100] hidden">
+  <div class="relative max-w-full max-h-full p-4">
+    <img id="zoomedImage" src="" alt="Zoomed Image" class="max-w-full max-h-[90vh] rounded shadow-lg border-4 border-white" />
+    <button onclick="closeZoom()" class="absolute top-2 right-2 bg-white text-black text-xl font-bold rounded-full w-10 h-10 flex items-center justify-center hover:bg-red-500 hover:text-white transition-all duration-300">
+      ✕
+    </button>
+  </div>
+</div>
+
 
 
 
@@ -746,6 +801,8 @@
   </div>
 </div>
 
+  
+<div id="globalError" class="hidden text-red-600 font-bold"></div>
 
 
     <!-- Go to Top Button -->
@@ -768,11 +825,11 @@
     });
   </script>
   
-    <script src="kkk.js"></script>
+    <script src=" https://cdn.jsdelivr.net/gh/Akshay-152/elite3/kkk.js"></script>
   
   
-   <script src="apload3.js"></script>
-  
+   <script src="https://cdn.jsdelivr.net/gh/Akshay-152/elite2/apload3.js"></script>
+ 
   
 </body>
 </html>
